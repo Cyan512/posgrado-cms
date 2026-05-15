@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_home_abouts",
+  "info": {
+    "displayName": "about"
+  },
+  "options": {},
+  "attributes": {
+    "quote": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "authorityName": {
+      "type": "string"
+    },
+    "authorityRole": {
+      "type": "string"
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

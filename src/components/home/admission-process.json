@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_home_admission_processes",
+  "info": {
+    "displayName": "admission-process"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "highlight": {
+      "type": "string"
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "steps": {
+      "type": "component",
+      "component": "shared.step",
+      "repeatable": true,
+      "min": 0,
+      "max": 6
+    },
+    "link": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

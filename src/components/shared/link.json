@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "displayName": "link"
+  },
+  "options": {},
+  "attributes": {
+    "href": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "primary",
+      "enum": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "outline",
+        "ghost",
+        "light"
+      ]
+    }
+  },
+  "config": {}
+}

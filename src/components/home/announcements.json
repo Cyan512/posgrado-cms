@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_home_announcements",
+  "info": {
+    "displayName": "announcements"
+  },
+  "options": {},
+  "attributes": {
+    "announcements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::announcement.announcement"
+    },
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
