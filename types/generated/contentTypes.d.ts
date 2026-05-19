@@ -488,6 +488,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'home.about',
         'home.admission-process',
         'home.announcements',
+        'home.banner',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -496,6 +497,42 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
+  collectionName: 'programs';
+  info: {
+    displayName: 'Programs';
+    pluralName: 'programs';
+    singularName: 'program';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::program.program'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    program_type: Schema.Attribute.Enumeration<
+      [
+        'Maestrias',
+        'Doctorados',
+        'Segundas Especialidades',
+        'Residentado Medico',
+      ]
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1016,6 +1053,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::home.home': ApiHomeHome;
+      'api::program.program': ApiProgramProgram;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -68,6 +68,15 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                                     populate: true
                                 }
                             }
+                        },
+                        'home.banner':{
+                            populate: {
+                                image: {
+                                    populate: {
+                                        src: true
+                                    }
+                                }
+                            }
                         }
                     },
                 },

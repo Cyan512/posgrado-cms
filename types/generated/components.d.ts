@@ -50,6 +50,16 @@ export interface HomeAnnouncements extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeBanner extends Struct.ComponentSchema {
+  collectionName: 'components_home_banners';
+  info: {
+    displayName: 'banner';
+  };
+  attributes: {
+    image: Schema.Attribute.Component<'shared.image', false>;
+  };
+}
+
 export interface HomeHero extends Struct.ComponentSchema {
   collectionName: 'components_home_heroes';
   info: {
@@ -114,6 +124,7 @@ declare module '@strapi/strapi' {
       'home.about': HomeAbout;
       'home.admission-process': HomeAdmissionProcess;
       'home.announcements': HomeAnnouncements;
+      'home.banner': HomeBanner;
       'home.hero': HomeHero;
       'shared.image': SharedImage;
       'shared.link': SharedLink;

@@ -17,7 +17,8 @@
         "home.hero",
         "home.about",
         "home.admission-process",
-        "home.announcements"
+        "home.announcements",
+        "home.banner"
       ]
     }
   }
