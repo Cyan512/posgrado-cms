@@ -489,6 +489,8 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'home.admission-process',
         'home.announcements',
         'home.banner',
+        'home.student-information',
+        'home.programs',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -497,6 +499,37 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProgramTypeProgramType extends Struct.CollectionTypeSchema {
+  collectionName: 'program_types';
+  info: {
+    displayName: 'program_type';
+    pluralName: 'program-types';
+    singularName: 'program-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'shared.link', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::program-type.program-type'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    programs: Schema.Attribute.Relation<'oneToMany', 'api::program.program'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -525,15 +558,12 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    program_type: Schema.Attribute.Enumeration<
-      [
-        'Maestrias',
-        'Doctorados',
-        'Segundas Especialidades',
-        'Residentado Medico',
-      ]
+    program_type: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::program-type.program-type'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1053,6 +1083,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::home.home': ApiHomeHome;
+      'api::program-type.program-type': ApiProgramTypeProgramType;
       'api::program.program': ApiProgramProgram;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

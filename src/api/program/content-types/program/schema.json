@@ -15,13 +15,14 @@
       "type": "string"
     },
     "program_type": {
-      "type": "enumeration",
-      "enum": [
-        "Maestrias",
-        "Doctorados",
-        "Segundas Especialidades",
-        "Residentado Medico"
-      ]
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::program-type.program-type",
+      "inversedBy": "programs"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }

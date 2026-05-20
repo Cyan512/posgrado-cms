@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_home_student_informations",
+  "info": {
+    "displayName": "student-information"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.image",
+      "repeatable": false
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "component": "shared.information-items",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

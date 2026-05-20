@@ -69,11 +69,31 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                                 }
                             }
                         },
-                        'home.banner':{
+                        'home.banner': {
                             populate: {
                                 image: {
                                     populate: {
                                         src: true
+                                    }
+                                }
+                            }
+                        },
+                        'home.programs': {
+                            populate: true
+                        },
+                        'home.student-information': {
+                            populate: {
+                                image: {
+                                    populate: {
+                                        src: true
+                                    }
+                                },
+                                items: {
+                                    populate: {
+                                        link: {
+                                            populate: true
+                                        },
+                                        icon: true
                                     }
                                 }
                             }

@@ -80,6 +80,29 @@ export interface HomeHero extends Struct.ComponentSchema {
   };
 }
 
+export interface HomePrograms extends Struct.ComponentSchema {
+  collectionName: 'components_home_programs';
+  info: {
+    displayName: 'programs';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HomeStudentInformation extends Struct.ComponentSchema {
+  collectionName: 'components_home_student_informations';
+  info: {
+    displayName: 'student-information';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Component<'shared.image', false>;
+    items: Schema.Attribute.Component<'shared.information-items', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedImage extends Struct.ComponentSchema {
   collectionName: 'components_shared_images';
   info: {
@@ -88,6 +111,19 @@ export interface SharedImage extends Struct.ComponentSchema {
   attributes: {
     alt: Schema.Attribute.String;
     src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface SharedInformationItems extends Struct.ComponentSchema {
+  collectionName: 'components_shared_information_items';
+  info: {
+    displayName: 'information-items';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'shared.link', false>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -126,7 +162,10 @@ declare module '@strapi/strapi' {
       'home.announcements': HomeAnnouncements;
       'home.banner': HomeBanner;
       'home.hero': HomeHero;
+      'home.programs': HomePrograms;
+      'home.student-information': HomeStudentInformation;
       'shared.image': SharedImage;
+      'shared.information-items': SharedInformationItems;
       'shared.link': SharedLink;
       'shared.step': SharedStep;
     }

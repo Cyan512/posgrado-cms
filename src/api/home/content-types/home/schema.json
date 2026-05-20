@@ -18,7 +18,9 @@
         "home.about",
         "home.admission-process",
         "home.announcements",
-        "home.banner"
+        "home.banner",
+        "home.student-information",
+        "home.programs"
       ]
     }
   }

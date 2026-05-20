@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_home_programs",
+  "info": {
+    "displayName": "programs"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
