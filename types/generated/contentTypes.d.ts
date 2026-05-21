@@ -548,22 +548,30 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    call: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::program.program'
     > &
       Schema.Attribute.Private;
+    mode: Schema.Attribute.Enumeration<
+      ['Presencial', 'Semipresencial', 'Virtual']
+    > &
+      Schema.Attribute.DefaultTo<'Virtual'>;
     name: Schema.Attribute.String;
     program_type: Schema.Attribute.Relation<
       'manyToOne',
       'api::program-type.program-type'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'name'>;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    time_end: Schema.Attribute.Date;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
