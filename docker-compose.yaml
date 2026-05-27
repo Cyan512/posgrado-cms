@@ -22,7 +22,7 @@ services:
 
       CLOUDINARY_NAME: ${CLOUDINARY_NAME:?CLOUDINARY_NAME is required}
       CLOUDINARY_KEY: ${CLOUDINARY_KEY:?CLOUDINARY_KEY is required}
-      CLOUDINARY_SECRET: ${CLOUDINARY_KEY:?CLOUDINARY_KEY is required}
+      CLOUDINARY_SECRET: ${CLOUDINARY_SECRET:?CLOUDINARY_SECRET is required}
 
     volumes:
       - ./app:/srv/app
