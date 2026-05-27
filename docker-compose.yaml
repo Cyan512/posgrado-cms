@@ -20,6 +20,10 @@ services:
       DATABASE_SSL: "false"
       DATABASE_SSL_REJECT_UNAUTHORIZED: "false"
 
+      CLOUDINARY_NAME: ${CLOUDINARY_NAME:?CLOUDINARY_NAME is required}
+      CLOUDINARY_KEY: ${CLOUDINARY_KEY:?CLOUDINARY_KEY is required}
+      CLOUDINARY_SECRET: ${CLOUDINARY_KEY:?CLOUDINARY_KEY is required}
+
     volumes:
       - ./app:/srv/app
       - strapi-uploads:/app/public/uploads 
