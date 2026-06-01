@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tipo_programas",
+  "info": {
+    "singularName": "tipo-programa",
+    "pluralName": "tipo-programas",
+    "displayName": "TipoPrograma"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "programas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::programa.programa",
+      "mappedBy": "tipo_programa"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nombre"
+    }
+  }
+}

@@ -440,13 +440,12 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAnnouncementAnnouncement
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'announcements';
+export interface ApiComunicadoComunicado extends Struct.CollectionTypeSchema {
+  collectionName: 'comunicados';
   info: {
-    displayName: 'announcement';
-    pluralName: 'announcements';
-    singularName: 'announcement';
+    displayName: 'Comunicado';
+    pluralName: 'comunicados';
+    singularName: 'comunicado';
   };
   options: {
     draftAndPublish: true;
@@ -455,49 +454,11 @@ export interface ApiAnnouncementAnnouncement
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.Date;
-    image: Schema.Attribute.Component<'shared.image', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::announcement.announcement'
+      'api::comunicado.comunicado'
     > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.Text;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiHomeHome extends Struct.SingleTypeSchema {
-  collectionName: 'homes';
-  info: {
-    displayName: 'home';
-    pluralName: 'homes';
-    singularName: 'home';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Schema.Attribute.DynamicZone<
-      [
-        'home.hero',
-        'home.about',
-        'home.admission-process',
-        'home.announcements',
-        'home.banner',
-        'home.student-information',
-        'home.programs',
-      ]
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -506,12 +467,12 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiProgramTypeProgramType extends Struct.CollectionTypeSchema {
-  collectionName: 'program_types';
+export interface ApiProgramaPrograma extends Struct.CollectionTypeSchema {
+  collectionName: 'programas';
   info: {
-    displayName: 'program_type';
-    pluralName: 'program-types';
-    singularName: 'program-type';
+    displayName: 'Programa';
+    pluralName: 'programas';
+    singularName: 'programa';
   };
   options: {
     draftAndPublish: true;
@@ -520,58 +481,50 @@ export interface ApiProgramTypeProgramType extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    link: Schema.Attribute.Component<'shared.link', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::program-type.program-type'
+      'api::programa.programa'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    programs: Schema.Attribute.Relation<'oneToMany', 'api::program.program'>;
+    nombre: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
-  collectionName: 'programs';
-  info: {
-    displayName: 'Programs';
-    pluralName: 'programs';
-    singularName: 'program';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    call: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::program.program'
-    > &
-      Schema.Attribute.Private;
-    mode: Schema.Attribute.Enumeration<
-      ['Presencial', 'Semipresencial', 'Virtual']
-    > &
-      Schema.Attribute.DefaultTo<'Virtual'>;
-    name: Schema.Attribute.String;
-    program_type: Schema.Attribute.Relation<
+    slug: Schema.Attribute.UID<'nombre'>;
+    tipo_programa: Schema.Attribute.Relation<
       'manyToOne',
-      'api::program-type.program-type'
+      'api::tipo-programa.tipo-programa'
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTipoProgramaTipoPrograma
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'tipo_programas';
+  info: {
+    displayName: 'TipoPrograma';
+    pluralName: 'tipo-programas';
+    singularName: 'tipo-programa';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tipo-programa.tipo-programa'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    programas: Schema.Attribute.Relation<'oneToMany', 'api::programa.programa'>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
-    time_end: Schema.Attribute.Date;
+    slug: Schema.Attribute.UID<'nombre'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1089,10 +1042,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::announcement.announcement': ApiAnnouncementAnnouncement;
-      'api::home.home': ApiHomeHome;
-      'api::program-type.program-type': ApiProgramTypeProgramType;
-      'api::program.program': ApiProgramProgram;
+      'api::comunicado.comunicado': ApiComunicadoComunicado;
+      'api::programa.programa': ApiProgramaPrograma;
+      'api::tipo-programa.tipo-programa': ApiTipoProgramaTipoPrograma;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
