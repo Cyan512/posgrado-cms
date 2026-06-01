@@ -10,5 +10,23 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date"
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    }
+  }
 }

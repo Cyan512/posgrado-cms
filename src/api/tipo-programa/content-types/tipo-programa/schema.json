@@ -23,6 +23,20 @@
     "slug": {
       "type": "uid",
       "targetField": "nombre"
+    },
+    "imagen_card": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imagen_bg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
