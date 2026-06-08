@@ -451,9 +451,11 @@ export interface ApiComunicadoComunicado extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    categoria: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Text;
     fecha: Schema.Attribute.Date;
     imagen: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
