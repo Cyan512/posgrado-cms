@@ -11,6 +11,9 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "facultad": {
+      "type": "string"
+    },
     "nombre": {
       "type": "string"
     },
@@ -26,6 +29,38 @@
     },
     "descripcion": {
       "type": "text"
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "convocatoria": {
+      "type": "boolean"
+    },
+    "objetivo_general": {
+      "type": "text"
+    },
+    "objetivos_especificos": {
+      "type": "text"
+    },
+    "perfil_posgraduado": {
+      "type": "text"
+    },
+    "inversion": {
+      "type": "component",
+      "component": "shared.inversion",
+      "repeatable": false
+    },
+    "modalidad": {
+      "type": "enumeration",
+      "enum": [
+        "virtual",
+        "semipresencial",
+        "presencial"
+      ]
     }
   }
 }

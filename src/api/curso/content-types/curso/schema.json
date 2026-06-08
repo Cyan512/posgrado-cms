@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cursos",
+  "info": {
+    "singularName": "curso",
+    "pluralName": "cursos",
+    "displayName": "Cursos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "asignatura": {
+      "type": "string"
+    },
+    "creditos": {
+      "type": "integer"
+    },
+    "categoria": {
+      "type": "enumeration",
+      "enum": [
+        "OE",
+        "EE"
+      ]
+    }
+  }
+}

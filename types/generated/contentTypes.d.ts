@@ -473,6 +473,33 @@ export interface ApiComunicadoComunicado extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
+  collectionName: 'cursos';
+  info: {
+    displayName: 'Cursos';
+    pluralName: 'cursos';
+    singularName: 'curso';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    asignatura: Schema.Attribute.String;
+    categoria: Schema.Attribute.Enumeration<['OE', 'EE']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    creditos: Schema.Attribute.Integer;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::curso.curso'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProgramaPrograma extends Struct.CollectionTypeSchema {
   collectionName: 'programas';
   info: {
@@ -484,17 +511,27 @@ export interface ApiProgramaPrograma extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    convocatoria: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     descripcion: Schema.Attribute.Text;
+    facultad: Schema.Attribute.String;
+    imagen: Schema.Attribute.Media<'images'>;
+    inversion: Schema.Attribute.Component<'shared.inversion', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::programa.programa'
     > &
       Schema.Attribute.Private;
+    modalidad: Schema.Attribute.Enumeration<
+      ['virtual', 'semipresencial', 'presencial']
+    >;
     nombre: Schema.Attribute.String;
+    objetivo_general: Schema.Attribute.Text;
+    objetivos_especificos: Schema.Attribute.Text;
+    perfil_posgraduado: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'nombre'>;
     tipo_programa: Schema.Attribute.Relation<
@@ -1052,6 +1089,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::comunicado.comunicado': ApiComunicadoComunicado;
+      'api::curso.curso': ApiCursoCurso;
       'api::programa.programa': ApiProgramaPrograma;
       'api::tipo-programa.tipo-programa': ApiTipoProgramaTipoPrograma;
       'plugin::content-releases.release': PluginContentReleasesRelease;

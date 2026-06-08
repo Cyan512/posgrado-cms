@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_inversions",
+  "info": {
+    "displayName": "inversion"
+  },
+  "options": {},
+  "attributes": {
+    "matricula": {
+      "type": "decimal"
+    },
+    "n_matricula": {
+      "type": "integer"
+    },
+    "cuotas": {
+      "type": "integer"
+    },
+    "valor_cuota": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}

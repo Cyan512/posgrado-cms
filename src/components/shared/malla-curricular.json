@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_malla_curriculars",
+  "info": {
+    "displayName": "malla_curricular"
+  },
+  "options": {},
+  "attributes": {
+    "descripcion": {
+      "type": "text"
+    },
+    "primer_semestres": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::curso.curso"
+    }
+  },
+  "config": {}
+}
