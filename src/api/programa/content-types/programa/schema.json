@@ -40,15 +40,6 @@
     "convocatoria": {
       "type": "boolean"
     },
-    "objetivo_general": {
-      "type": "text"
-    },
-    "objetivos_especificos": {
-      "type": "text"
-    },
-    "perfil_posgraduado": {
-      "type": "text"
-    },
     "inversion": {
       "type": "component",
       "component": "shared.inversion",
@@ -63,8 +54,14 @@
       ]
     },
     "malla_curricular": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::curso.curso",
+      "mappedBy": "programa"
+    },
+    "presentacion": {
       "type": "component",
-      "component": "shared.malla-curricular",
+      "component": "shared.presentacion",
       "repeatable": false
     }
   }

@@ -493,6 +493,10 @@ export interface ApiCursoCurso extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::curso.curso'> &
       Schema.Attribute.Private;
+    modulo: Schema.Attribute.Enumeration<
+      ['primer semestre', 'segundo semestre', 'electivos']
+    >;
+    programa: Schema.Attribute.Relation<'manyToOne', 'api::programa.programa'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -525,17 +529,15 @@ export interface ApiProgramaPrograma extends Struct.CollectionTypeSchema {
       'api::programa.programa'
     > &
       Schema.Attribute.Private;
-    malla_curricular: Schema.Attribute.Component<
-      'shared.malla-curricular',
-      false
+    malla_curricular: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::curso.curso'
     >;
     modalidad: Schema.Attribute.Enumeration<
       ['virtual', 'semipresencial', 'presencial']
     >;
     nombre: Schema.Attribute.String;
-    objetivo_general: Schema.Attribute.Text;
-    objetivos_especificos: Schema.Attribute.Text;
-    perfil_posgraduado: Schema.Attribute.Text;
+    presentacion: Schema.Attribute.Component<'shared.presentacion', false>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'nombre'>;
     tipo_programa: Schema.Attribute.Relation<

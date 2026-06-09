@@ -23,6 +23,20 @@
         "OE",
         "EE"
       ]
+    },
+    "programa": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::programa.programa",
+      "inversedBy": "malla_curricular"
+    },
+    "modulo": {
+      "type": "enumeration",
+      "enum": [
+        "primer semestre",
+        "segundo semestre",
+        "electivos"
+      ]
     }
   }
 }

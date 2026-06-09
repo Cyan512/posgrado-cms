@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_presentacions",
+  "info": {
+    "displayName": "presentacion"
+  },
+  "options": {},
+  "attributes": {
+    "objetivo_general": {
+      "type": "text"
+    },
+    "objetivos_especificos": {
+      "type": "text"
+    },
+    "perfil_posgraduado": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

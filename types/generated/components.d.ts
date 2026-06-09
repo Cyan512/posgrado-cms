@@ -32,11 +32,24 @@ export interface SharedMallaCurricular extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedPresentacion extends Struct.ComponentSchema {
+  collectionName: 'components_shared_presentacions';
+  info: {
+    displayName: 'presentacion';
+  };
+  attributes: {
+    objetivo_general: Schema.Attribute.Text;
+    objetivos_especificos: Schema.Attribute.Text;
+    perfil_posgraduado: Schema.Attribute.Text;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.inversion': SharedInversion;
       'shared.malla-curricular': SharedMallaCurricular;
+      'shared.presentacion': SharedPresentacion;
     }
   }
 }
