@@ -61,6 +61,11 @@
         "semipresencial",
         "presencial"
       ]
+    },
+    "malla_curricular": {
+      "type": "component",
+      "component": "shared.malla-curricular",
+      "repeatable": false
     }
   }
 }

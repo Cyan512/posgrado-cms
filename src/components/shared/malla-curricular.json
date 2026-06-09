@@ -12,6 +12,16 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::curso.curso"
+    },
+    "segundo_semestres": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::curso.curso"
+    },
+    "electivos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::curso.curso"
     }
   },
   "config": {}

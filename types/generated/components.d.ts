@@ -20,7 +20,12 @@ export interface SharedMallaCurricular extends Struct.ComponentSchema {
   };
   attributes: {
     descripcion: Schema.Attribute.Text;
+    electivos: Schema.Attribute.Relation<'oneToMany', 'api::curso.curso'>;
     primer_semestres: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::curso.curso'
+    >;
+    segundo_semestres: Schema.Attribute.Relation<
       'oneToMany',
       'api::curso.curso'
     >;

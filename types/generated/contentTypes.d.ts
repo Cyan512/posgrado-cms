@@ -525,6 +525,10 @@ export interface ApiProgramaPrograma extends Struct.CollectionTypeSchema {
       'api::programa.programa'
     > &
       Schema.Attribute.Private;
+    malla_curricular: Schema.Attribute.Component<
+      'shared.malla-curricular',
+      false
+    >;
     modalidad: Schema.Attribute.Enumeration<
       ['virtual', 'semipresencial', 'presencial']
     >;
